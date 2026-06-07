@@ -1,13 +1,7 @@
-
-
----
-
 ## 一、 详细 UI 设计文档
 
-基于 `image_58c67e.png` 的布局，我们对视觉细节、交互动效和规范进行定义。
-
 ### 1.1 视觉风格 (Visual Style)
-*   **色调：** 建议采用“校园蓝”或“清新绿”作为主色调（如：`#3B82F6`），搭配大量留白，营造干净、可信赖的氛围。
+*   **色调：** 采用“校园蓝”或“清新绿”作为主色调（如：`#3B82F6`），搭配大量留白，营造干净、可信赖的氛围。
 *   **圆角规范：** 所有的卡片（Card）和按钮（Button）统一使用 `8px` 或 `12px` 的圆角，增加亲和力。
 *   **字体：** 优先使用系统默认无衬线字体（PingFang SC, Microsoft YaHei）。
 
@@ -47,8 +41,6 @@
 
 ## 二、 技术框架与组件选型
 
-为了让 Claude 开发更高效、代码更健壮，建议采用以下**全栈“黄金组合”**：
-
 ### 2.1 前端：React + Tailwind CSS + Ant Design
 *   **框架：** **React (Vite)**。起步快，组件化程度高，方便 Claude 生成模块化代码。
 *   **样式：** **Tailwind CSS**。直接在 HTML 里写类名（如 `flex`, `rounded-lg`, `shadow-md`），Claude 对这种样式极其擅长。
@@ -68,17 +60,4 @@
 *   **图片存储：** 建议 Claude 先实现**本地存储**（存储在 `public/uploads` 目录下），后续可轻松迁移到阿里云 OSS。
 
 ---
-
-## 三、 给 Claude 的“开工”指令建议
-
-你现在可以将以下这段话发给 Claude：
-
-> “你好 Claude，我决定采用以下技术栈开发失物招领项目：
-> *   **前端：** React (Vite) + Tailwind CSS + Ant Design
-> *   **后端：** Node.js (Express) + Sequelize (MySQL)
-> 
-> **请开始第一阶段的任务：**
-> 1. 根据 PRD 文档，提供 Sequelize 的模型定义代码（User 和 Item）。
-> 2. 生成一个基础的后台项目结构，并包含一个 `authMiddleware` 用于验证 JWT。
-> 3. 编写前端首页的核心组件代码，按照 `image_58c67e.png` 的双栏布局展示模拟数据。”
 

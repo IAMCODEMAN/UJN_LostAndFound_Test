@@ -1,11 +1,6 @@
-
-
----
-
 # 🚀 技术架构与开发规范文档
 
 ## 1. 技术栈选型 (Technology Stack)
-为了保证开发效率和系统稳定性，禁止“手写”基础功能，统一使用以下成熟开源方案：
 
 | 维度 | 推荐方案 | 理由 |
 | :--- | :--- | :--- |
@@ -20,7 +15,7 @@
 ---
 
 ## 2. 数据库逻辑模型 (Data Model)
-要求 Claude 使用 **Sequelize** 定义以下模型，并利用 `sync()` 自动创建表。
+使用 **Sequelize** 定义以下模型，并利用 `sync()` 自动创建表。
 
 *   **User Model:** 包含 `id`, `username`, `password` (需使用 `bcrypt` 加密), `avatar`, `contact`, `role` (admin/user)。
 *   **Item Model:** 包含 `id`, `title`, `description`, `type` (ENUM: 'lost', 'found'), `category`, `image_url`, `location`, `contact_info`, `status` (0: 活跃, 1: 已解决), `userId` (关联外键)。
@@ -51,25 +46,5 @@
 2.  **静态资源：** 
     *   **开发环境：** 存放在后端 `public/uploads` 目录下。
     *   **生产环境：** Claude 需预留接口地址前缀配置，以便后续切换到 CDN 或云存储。
-
----
-
-## 5. 给 Claude 的最终指令 (一键开工)
-
-你可以直接把这段话投喂给 Claude：
-
-> “请根据以下技术文档开发『失物招领系统』：
-> 
-> **技术要求：**
-> 1. 前端使用 **Vite + React + Ant Design + Tailwind CSS**。
-> 2. 后端使用 **Express + Sequelize (MySQL)**。
-> 3. 使用 **JWT** 处理用户登录状态，**bcrypt** 加密密码。
-> 4. UI 布局请严格参考 `image_58c67e.png`。
-> 
-> **第一步：**
-> 请先帮我初始化后端目录结构，编写 `models/User.js` 和 `models/Item.js`，并给出数据库连接配置文件 `config/database.js`。
-> 
-> **第二步：**
-> 提供一个基础的 `app.js` 入口文件，配置好 CORS 和中间件，并实现 `/api/items` 的列表查询 API（需包含分页和搜索逻辑）。”
 
 ---
